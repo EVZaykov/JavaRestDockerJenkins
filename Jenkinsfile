@@ -23,7 +23,6 @@ pipeline{
               ])
             }
 			emailext (to:  "${Email}", replyTo: "", subject: "Email Report from - '${env.JOB_NAME}' ", body: "Email Report from - '${env.JOB_NAME}'  <br> http://localhost:8080/job/${env.JOB_NAME}/${env.BUILD_NUMBER}/allure/ <br> http://localhost:8080/job/${env.JOB_NAME}/${env.BUILD_NUMBER}/", mimeType: 'text/html');
-			bat 'docker-compose down'
 		}
 	}
 }
