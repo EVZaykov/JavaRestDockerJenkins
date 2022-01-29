@@ -5,15 +5,9 @@ pipeline{
 	    BOBO = "--tags ${TAGS}"
     }
 	stages {
-		stage('Start Grid'){
-			steps {
-				print "DE2312BUG: parameter foo = ${BROWSER}"
-				bat "docker-compose up -d selenium-hub && docker-compose scale ${BROWSER}=3"
-			}
-		}
 		stage('Run Test'){
 			steps{
-				bat "mvn clean test -Dwebdriver.browser.name=${BROWSER} -Dcucumber.options=\"${BOBO}\""
+				bat "mvn clean test -DUSERNAME=${USERNAME} -DPASSWORD=${PASSWORD} -DENV=${ENVIRONMENT} -Dcucumber.options=\"${BOBO}\""
 			}
 		}
 	}
