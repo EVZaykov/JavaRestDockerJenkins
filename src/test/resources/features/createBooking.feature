@@ -1,4 +1,4 @@
-@all
+@all1
 @severity=blocker
 Feature: Creates a new booking in the API
 
