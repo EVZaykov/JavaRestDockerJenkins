@@ -12,7 +12,7 @@ Setup Instructions
 --------------
 Clone the repo from below command or download zip and set it up in your local workspace.
 ```
-git clone https://github.com/EVZaykov/Payconiq.git
+git clone https://github.com/EVZaykov/JavaRestDockerJenkins.git
 ```
 
 Running Test
