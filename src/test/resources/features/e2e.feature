@@ -1,4 +1,4 @@
-@smoke
+@e2e
 @all
 Feature: E2E for booking
 
