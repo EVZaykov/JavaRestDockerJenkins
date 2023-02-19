@@ -133,4 +133,4 @@ Feature: Returns the ids of all the bookings that exist within the API. Can take
 
       Examples:
         | firstname | lastname | totalprice | depositpaid | checkin    | checkout   | additionalneeds | code | bookingId      |
-        | Ruud      | Vormer   | 1112       | true        | 2020-01-02 | 2020-02-02 | test            | 200  | IdOfNewBooking |
+        | Ruud      | Vormer   | 1112       | true        | 1999-01-02 | 1999-02-02 | test            | 200  | IdOfNewBooking |
