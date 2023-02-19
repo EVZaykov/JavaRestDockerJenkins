@@ -117,7 +117,7 @@ Feature: Returns the ids of all the bookings that exist within the API. Can take
 
       Examples:
         | firstname | lastname | totalprice | depositpaid | checkin    | checkout   | additionalneeds | code | bookingId      |
-        | Ruud      | Vormer   | 1112       | true        | 2020-01-02 | 2020-02-02 | test            | 200  | IdOfNewBooking |
+        | Ruud      | Vormer   | 1112       | true        | 1998-01-02 | 1998-02-02 | test            | 200  | IdOfNewBooking |
 
   Scenario:Get all booking ids without filters and count  booking.Get booking ids with filter by checkin with 0000-01-01 and count booking. After this I compare them.
     * I get ids of all the bookings and save the response into the variable "responseAfterGetAll"
