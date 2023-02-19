@@ -3,23 +3,7 @@
 @known
 Feature: Returns the ids of all the bookings that exist within the API. Can take optional query strings to search and return a subset of booking ids.
 
-    Scenario:Get all booking ids without filters and count  booking.Get booking ids with filter by checkin with 0000-01-01 and count booking. After this I compare them.
-      * I get ids of all the bookings and save the response into the variable "responseAfterGetAll"
-      * I check headers in the response "responseAfterGetAll" with regular expression
-        | Etag | ^W\/"[\w]*-[\w\s\W]*"                             |
-        | Date | [\w]{3},\s[\d]{2}\s[\w]{3}\s202[\d]\s[\d:]+\sGMT$ |
-      * I get the response "responseAfterGetAll" and check status code, expected result = "200"
-      * I parse the response "responseAfterGetAll" with JsonPath "bookingid"and save into the variable "IdsOfAllBooking"
-      * I count elements in ArrayList "IdsOfAllBooking" and save it into the variable "countBookingAfterGetAll"
-      * I get booking with parameters and save response into the variable "responseGetWithFilter"
-        | checkin | 0000-01-01 |
-      * I get the response "responseGetWithFilter" and check status code, expected result = "200"
-      * I check headers in the response "responseGetWithFilter" with regular expression
-        | Etag | ^W\/"[\w]*-[\w\s\W]*"                             |
-        | Date | [\w]{3},\s[\d]{2}\s[\w]{3}\s202[\d]\s[\d:]+\sGMT$ |
-      * I parse the response "responseGetWithFilter" with JsonPath "bookingid"and save into the variable "IdsBookingAfterFilter"
-      * I count elements in ArrayList "IdsBookingAfterFilter" and save it into the variable "countBookingAfterGetWithFilter"
-      * I compare two variables "countBookingAfterGetAll" and "countBookingAfterGetWithFilter"
+
 
 
     Scenario Outline: Get Booking Ids with filter by firstname and lastname
@@ -134,3 +118,21 @@ Feature: Returns the ids of all the bookings that exist within the API. Can take
       Examples:
         | firstname | lastname | totalprice | depositpaid | checkin    | checkout   | additionalneeds | code | bookingId      |
         | Ruud      | Vormer   | 1112       | true        | 1999-01-02 | 1999-02-02 | test            | 200  | IdOfNewBooking |
+
+  Scenario:Get all booking ids without filters and count  booking.Get booking ids with filter by checkin with 0000-01-01 and count booking. After this I compare them.
+    * I get ids of all the bookings and save the response into the variable "responseAfterGetAll"
+    * I check headers in the response "responseAfterGetAll" with regular expression
+      | Etag | ^W\/"[\w]*-[\w\s\W]*"                             |
+      | Date | [\w]{3},\s[\d]{2}\s[\w]{3}\s202[\d]\s[\d:]+\sGMT$ |
+    * I get the response "responseAfterGetAll" and check status code, expected result = "200"
+    * I parse the response "responseAfterGetAll" with JsonPath "bookingid"and save into the variable "IdsOfAllBooking"
+    * I count elements in ArrayList "IdsOfAllBooking" and save it into the variable "countBookingAfterGetAll"
+    * I get booking with parameters and save response into the variable "responseGetWithFilter"
+      | checkin | 0000-01-01 |
+    * I get the response "responseGetWithFilter" and check status code, expected result = "200"
+    * I check headers in the response "responseGetWithFilter" with regular expression
+      | Etag | ^W\/"[\w]*-[\w\s\W]*"                             |
+      | Date | [\w]{3},\s[\d]{2}\s[\w]{3}\s202[\d]\s[\d:]+\sGMT$ |
+    * I parse the response "responseGetWithFilter" with JsonPath "bookingid"and save into the variable "IdsBookingAfterFilter"
+    * I count elements in ArrayList "IdsBookingAfterFilter" and save it into the variable "countBookingAfterGetWithFilter"
+    * I compare two variables "countBookingAfterGetAll" and "countBookingAfterGetWithFilter"
