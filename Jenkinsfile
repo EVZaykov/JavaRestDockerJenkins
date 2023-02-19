@@ -2,12 +2,12 @@ pipeline{
 	agent any
     environment {
         SECRET_TOKEN = credentials('secret-token')
-	    BOBO = "--tags ${TAGS}"
+	    CUCUMBER_TAGS = "--tags ${TAGS}"
     }
 	stages {
 		stage('Run Test'){
 			steps{
-				bat "mvn clean test -DUSERNAME=${USERNAME} -DPASSWORD=${PASSWORD} -DENV=${ENVIRONMENT} -Dcucumber.options=\"${BOBO}\""
+				bat "mvn clean test -DUSERNAME=${USERNAME} -DPASSWORD=${PASSWORD} -DENV=${ENVIRONMENT} -Dcucumber.options=\"${CUCUMBER_TAGS}\""
 			}
 		}
 	}
